@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+var tigger = { 
+    character: "Tigger",
+    greet: function(){
+        console.log("The wonderful thing about Tiggers is Tiggers are wonderful things!");
+    }
+ };
+ tigger.greet();
+
+
+
+var pooh = {
+    character: "Winnie the Pooh",
+    greet: function(){
+        console.log("Oh Bother");
+    }
+ };
+ pooh.greet();
+
+tigger.north = pooh;
+pooh.south = tigger;
+
+var piglet = {
+    character: "Piglet",
+    greet: function(){
+        console.log("Oh D D D Dear!");
+    }
+};
+piglet.greet();
+piglet.east = tigger.north;
+tigger.north.west = piglet;
+
+
+
+var Bees = {
+    character: "Bees",
+    greet: function(){
+        console.log("Bzzzzzzz");
+    }
+};
+Bees.greet();
+Bees.west = tigger.north;
+tigger.north.east = Bees;
+
+
+var Owl = {
+    character: "Owl",
+    greet: function(){
+        console.log("dropping knowledge!");
+    }
+};
+Owl.greet();
+piglet.north = Owl;
+Owl.south = piglet;
+Owl.east = pooh.north;
+
+
+var chris = {
+    character: 'Christopher_Robin',
+    greet: function(){
+        console.log('The realest of em all');
+    }
+};
+chris.greet();
+pooh.north= chris;
+chris.south= pooh;
+chris.west= piglet.north;
+piglet.north.east= pooh.north;
+
+var rabbit= {
+    character: 'Rabbit',
+    greet: function(){
+        console.log('Stay out of my garden!');
+    }
+};
+rabbit.greet();
+Bees.north= rabbit;
+rabbit.south= Bees;
+rabbit.west= pooh.north;
+pooh.north.east= rabbit;
+rabbit.east= gopher;
+
+
+var gopher={character:'Gopher'};
+gopher.west= rabbit;
+rabbit.east= gopher;
+Bees.north=gopher.west;
+
+var kango={character: 'Kango'};
+kango.south= chris;
+chris.north= kango;
+kango.south= rabbit.west;
+
+
+var eeyore= {
+    character:'Eeyore',
+    greet:function(){
+        console.log('Rainy days');
+    }
+};
+eeyore.greet();
+eeyore.south= kango;
+kango.north= eeyore;
+eeyore.south= chris.north;
+
+var heffalumps={character: 'heffalumps'};
+heffalumps.west=eeyore;
+eeyore.east=heffalumps;
+
+var player = {
+    location: tigger
+}
+
+
+function move(direction){
+    console.log('You are now at ' + player.location[direction].character)
+    player = {
+        location: player.location[direction]
+    }
+    
+
+}
+
+    </script>
+    
+</body>
+</html>
